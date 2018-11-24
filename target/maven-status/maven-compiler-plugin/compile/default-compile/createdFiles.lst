@@ -1,0 +1,16 @@
+com\mycompany\it320\prz\service\AbstractFacade.class
+com\mycompany\it320\prz\Userrole_.class
+com\mycompany\it320\prz\Proizvod_.class
+com\mycompany\it320\prz\User_.class
+com\mycompany\it320\prz\service\ProdavnicaFacadeREST.class
+com\mycompany\it320\prz\Prodavnica.class
+com\mycompany\it320\prz\Proizvod.class
+com\mycompany\it320\prz\service\HTML5CorsFilter.class
+com\mycompany\it320\prz\service\UserroleFacadeREST.class
+com\mycompany\it320\prz\Prodavnica_.class
+com\mycompany\it320\prz\Userrole.class
+com\mycompany\it320\prz\service\ApplicationConfig.class
+com\mycompany\it320\prz\service\AuthenticationServiceREST.class
+com\mycompany\it320\prz\service\ProizvodFacadeREST.class
+com\mycompany\it320\prz\User.class
+com\mycompany\it320\prz\service\UserFacadeREST.class
