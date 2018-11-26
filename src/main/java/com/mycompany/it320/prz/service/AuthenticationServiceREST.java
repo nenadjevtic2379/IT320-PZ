@@ -30,7 +30,7 @@ import org.codehaus.jettison.json.JSONObject;
 @Api(value = "Authentication" )
 public class AuthenticationServiceREST {
 
-    final static String url = "jdbc:mysql://localhost:3306/it320?zeroDateTimeBehavior=convertToNull [root on Default schema]";
+    final static String url = "jdbc:mysql://localhost:3306/it320";
     final static String user = "root";
     final static String pass = "Nenad1995";
 
@@ -88,7 +88,7 @@ public class AuthenticationServiceREST {
     @ApiOperation(value = "Register user")
     public String register(@FormParam("username") String username, @FormParam("password") String password,
             @FormParam("id_role") int idRole, @FormParam("ime") String ime, @FormParam("prezime") String prezime,
-            @FormParam("jmbg") String jmbg, @FormParam("email") String email) {
+             @FormParam("email") String email) {
         String result = "false";
         int x = 0;
 
@@ -102,14 +102,15 @@ public class AuthenticationServiceREST {
             ResultSet rs = st.executeQuery();
 
             if (!rs.next()) {
-                PreparedStatement ps = con.prepareStatement("insert into user(username, password, id_role, ime, prezime, jmbg, email) values(?,?,?,?,?,?,?)");
+                PreparedStatement ps = con.prepareStatement("insert into user(username, password,id_role, ime, prezime, email) values(?,?,?,?,?,?)");
                 ps.setString(1, username);
                 ps.setString(2, password);
                 ps.setInt(3, 1);
+               // ps.setInt(4, useIdUser);
                 ps.setString(4, ime);
                 ps.setString(5, prezime);
-                ps.setString(6, jmbg);
-                ps.setString(7, email);
+                ps.setString(6, email);
+                
 
                 x = ps.executeUpdate();
             }
@@ -133,8 +134,8 @@ public class AuthenticationServiceREST {
     @Produces(MediaType.TEXT_HTML)
     @ApiOperation(value = "Register worker")
     public String registerRadnik(@FormParam("username") String username, @FormParam("password") String password,
-            @FormParam("id_role") int idRole, @FormParam("ime") String ime, @FormParam("prezime") String prezime,
-            @FormParam("jmbg") String jmbg, @FormParam("email") String email, @FormParam("added_by") String addedBy) {
+            @FormParam("id_role") int idRole, @FormParam("use_id_user") int useIdUser, @FormParam("ime") String ime, @FormParam("prezime") String prezime,
+             @FormParam("email") String email) {
         String result = "false";
         int x = 0;
 
@@ -148,15 +149,15 @@ public class AuthenticationServiceREST {
             ResultSet rs = st.executeQuery();
 
             if (!rs.next()) {
-                PreparedStatement ps = con.prepareStatement("insert into user(username, password, id_role, ime, prezime, jmbg, email, added_by) values(?,?,?,?,?,?,?,?)");
+                PreparedStatement ps = con.prepareStatement("insert into user(username, password, id_role, use_id_user, ime, prezime, email) values(?,?,?,?,?,?,?)");
                 ps.setString(1, username);
                 ps.setString(2, password);
                 ps.setInt(3, 2);
-                ps.setString(4, ime);
-                ps.setString(5, prezime);
-                ps.setString(6, jmbg);
+                ps.setInt(4, useIdUser);
+                ps.setString(5, ime);
+                ps.setString(6, prezime);
                 ps.setString(7, email);
-                ps.setString(8, addedBy);
+                
 
                 x = ps.executeUpdate();
             }

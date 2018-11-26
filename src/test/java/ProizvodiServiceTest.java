@@ -1,5 +1,5 @@
 
-import com.mycompany.it320.prz.Proizvod;
+import com.mycompany.it320.prz.entity.Proizvod;
 import com.mycompany.it320.prz.service.ProizvodFacadeREST;
 import java.util.ArrayList;
 import java.util.List;

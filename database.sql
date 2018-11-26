@@ -14,6 +14,8 @@ create table PRODAVNICA
    ID_PRODAVNICA        integer                        not null  AUTO_INCREMENT,
    ID_USER              integer                       not null,
    NAZIV_PRODAVNICA     long varchar                  not null,
+   DATUMMODIFIKACIJE    timestamp                    not null,
+   STATUS               boolean                      not null,
    constraint PK_PRODAVNICA primary key (ID_PRODAVNICA)
 );
 
@@ -43,6 +45,8 @@ create table PROIZVOD
    ID_USER              integer                      not  null,
    NAZIV_PROIZVOD       long varchar                 not  null,
    ROKUPOTREBE          timestamp                    not  null,
+   DATUMMODIFIKACIJE    timestamp                    not null,
+   STATUS               boolean                      not null,
    STANJE               integer                      not  null,
    MINIMUM              integer                      not  null,
    constraint PK_PROIZVOD primary key (ID_PROIZVOD)
@@ -124,6 +128,10 @@ create table USERROLE
 create unique index USERROLE_PK on USERROLE (
 ID_ROLE ASC
 );
+
+
+INSERT INTO USERROLE VALUES(1, 'KOMERCIJALISTA');
+INSERT INTO USERROLE VALUES(2, 'RADNIK');
 
 alter table PRODAVNICA
    add constraint FK_PRODAVNI_RELATIONS_USER foreign key (ID_USER)

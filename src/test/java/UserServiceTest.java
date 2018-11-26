@@ -1,5 +1,5 @@
 
-import com.mycompany.it320.prz.User;
+import com.mycompany.it320.prz.entity.User;
 import com.mycompany.it320.prz.service.UserFacadeREST;
 import java.util.ArrayList;
 import java.util.List;

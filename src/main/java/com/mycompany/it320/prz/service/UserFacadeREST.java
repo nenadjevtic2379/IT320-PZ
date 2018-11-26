@@ -5,7 +5,8 @@
  */
 package com.mycompany.it320.prz.service;
 
-import com.mycompany.it320.prz.User;
+import com.mycompany.it320.prz.facade.AbstractFacade;
+import com.mycompany.it320.prz.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
